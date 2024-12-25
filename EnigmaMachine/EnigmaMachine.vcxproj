@@ -127,7 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EnigmaDescription.cpp" />
     <ClCompile Include="EnigmaMachine.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EnigmaDescription.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
