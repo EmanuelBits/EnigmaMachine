@@ -27,21 +27,31 @@ void EnigmaDescription::printDescription() {
 void EnigmaDescription::printDrawing() {
     setConsoleColor("\033[1;32m"); // Bold Green
     std::cout << "\n[ 8-bit CPU Representation ]\n";
-    std::cout << "      +===================+\n";
-    std::cout << "      |  8-BIT CPU CORE   |\n";
-    std::cout << "  +---+===================+---+\n";
-    std::cout << "  |         CONTROL UNIT       |\n";
-    std::cout << "+---+-----------------------+---+\n";
-    std::cout << "| R |   Arithmetic Logic    | PC |\n";
-    std::cout << "| E |       Unit (ALU)      | R  |\n";
-    std::cout << "| G |-----------------------| G  |\n";
-    std::cout << "|   |   Registers & Memory  |    |\n";
-    std::cout << "+---+-----------------------+---+\n";
-    std::cout << "      |    DATA BUS         |\n";
-    std::cout << "      +---------------------+\n";
+
+    std::cout << "         +-----------------------+\n";
+    std::cout << "         |      CONTROL UNIT     |\n";
+    std::cout << "         +-----------------------+\n";
+    std::cout << "                     |\n";
+    std::cout << "       +-------------+-------------+\n";
+    std::cout << "       |                           |\n";
+    std::cout << " +-----+-----+             +-------+-------+\n";
+    std::cout << " |  REGISTERS |             |  PROGRAM      |\n";
+    std::cout << " |  (R1, R2)  |             |   COUNTER     |\n";
+    std::cout << " +-----+-----+             +-------+-------+\n";
+    std::cout << "       |                           |\n";
+    std::cout << "       +-------------+-------------+\n";
+    std::cout << "                     |\n";
+    std::cout << "         +-----------------------+\n";
+    std::cout << "         |    ARITHMETIC LOGIC   |\n";
+    std::cout << "         |        UNIT (ALU)     |\n";
+    std::cout << "         +-----------------------+\n";
+    std::cout << "                     |\n";
+    std::cout << "         +-----------------------+\n";
+    std::cout << "         |       DATA BUS        |\n";
+    std::cout << "         +-----------------------+\n";
+
     resetConsoleColor();
 }
-
 void EnigmaDescription::setConsoleColor(const std::string& color) {
     std::cout << color;
 }
