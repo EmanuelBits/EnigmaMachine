@@ -14,6 +14,7 @@ class EnigmaMachine {
 public:
     EnigmaMachine(Keyboard keyboard, Plugboard plugboard, std::array<signed char, 3> rotorsType, int positionRotor1, int positionRotor2, int positionRotor3);
     void start();  // Starts the Enigma Machine
+    std::string getMessage() { return output.getEncodedMessage(); };
 
 private:
     Keyboard keyboard;

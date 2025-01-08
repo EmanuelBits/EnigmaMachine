@@ -3,7 +3,9 @@
 #include <sstream>
 #include <iostream>
 
-SettingsManager::SettingsManager(const std::string& settingsFilePath) {
+SettingsManager::SettingsManager(const std::string& settingsFilePath)
+    : positionRotor1(1), positionRotor2(1), positionRotor3(1), rotorTypes({ 1, 2, 3 }) {
+
     // Open the settings file
     std::ifstream settingsFile(settingsFilePath);
     if (!settingsFile.is_open()) {
@@ -17,31 +19,52 @@ SettingsManager::SettingsManager(const std::string& settingsFilePath) {
         std::istringstream ss(line);
         std::string value;
 
-        // Parse the first line (keyboard path and plugboard pairs)
-        std::getline(ss, keyboardPath, ',');
+        // Parse the first value: keyboard path (e.g., input.txt)
+        if (!std::getline(ss, keyboardPath, ',')) {
+            std::cerr << "Error: Could not parse keyboard path." << std::endl;
+            exit(EXIT_FAILURE);
+        }
 
-        // Parse plugboard pairs
+        // Parse plugboard pairs (e.g., AB, CD, EF, GH, IJ)
         std::string plugPairStr;
-        while (std::getline(ss, plugPairStr, ',')) {
+        for (int i = 0; i < 5; i++) {
+            if (!std::getline(ss, plugPairStr, ',')) {
+                std::cerr << "Error: Could not parse plugboard pair " << i + 1 << std::endl;
+                exit(EXIT_FAILURE);
+            }
+            if (plugPairStr.size() != 2) {
+                std::cerr << "Error: Invalid plugboard pair format: " << plugPairStr << std::endl;
+                exit(EXIT_FAILURE);
+            }
             char letter1 = plugPairStr[0];
             char letter2 = plugPairStr[1];
             plugboardPairs.push_back(Plug(letter1, letter2));
         }
 
-        // Parse rotor types
-        std::getline(ss, value, ',');
-        rotorTypes[0] = std::stoi(value);
-        std::getline(ss, value, ',');
-        rotorTypes[1] = std::stoi(value);
-        std::getline(ss, value, ',');
-        rotorTypes[2] = std::stoi(value, nullptr, 10);
+        // Parse rotor types (e.g., 1, 2, 3)
+        for (int i = 0; i < 3; i++) {
+            if (!std::getline(ss, value, ',')) {
+                std::cerr << "Error: Could not parse rotor type " << i + 1 << std::endl;
+                exit(EXIT_FAILURE);
+            }
+            rotorTypes[i] = std::stoi(value);
+        }
 
-        // Parse initial rotor positions
-        std::getline(ss, value, ',');
+        // Parse initial rotor positions (e.g., 5, 12, 19)
+        if (!std::getline(ss, value, ',')) {
+            std::cerr << "Error: Could not parse position for rotor 1." << std::endl;
+            exit(EXIT_FAILURE);
+        }
         positionRotor1 = std::stoi(value);
-        std::getline(ss, value, ',');
+        if (!std::getline(ss, value, ',')) {
+            std::cerr << "Error: Could not parse position for rotor 2." << std::endl;
+            exit(EXIT_FAILURE);
+        }
         positionRotor2 = std::stoi(value);
-        std::getline(ss, value, ',');
+        if (!std::getline(ss, value, ',')) {
+            std::cerr << "Error: Could not parse position for rotor 3." << std::endl;
+            exit(EXIT_FAILURE);
+        }
         positionRotor3 = std::stoi(value);
     }
 

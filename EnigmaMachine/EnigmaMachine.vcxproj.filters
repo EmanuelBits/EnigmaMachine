@@ -93,5 +93,6 @@
   <ItemGroup>
     <Text Include="input.txt" />
     <Text Include="settings.txt" />
+    <Text Include="encodedMessage.txt" />
   </ItemGroup>
 </Project>

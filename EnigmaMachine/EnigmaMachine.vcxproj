@@ -155,6 +155,7 @@
     <ClInclude Include="SettingsManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="encodedMessage.txt" />
     <Text Include="input.txt" />
     <Text Include="settings.txt" />
   </ItemGroup>
