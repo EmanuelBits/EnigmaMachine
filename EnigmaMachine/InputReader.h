@@ -2,16 +2,21 @@
 #define INPUTREADER_H
 
 #include <string>
+#include <iostream>
 #include <fstream>
 
 class InputReader {
 public:
-    InputReader(const std::string& filePath);
-    char getNextCharacter();
-    bool hasMoreCharacters() const;
+    explicit InputReader(const std::string& filePath);
+
+    // Method to return the entire message read from the file
+    std::string getMessage() const;
 
 private:
-    std::ifstream inputFile;
+    std::string filePath;
+    std::string message;
+
+    void readMessageFromFile();
 };
 
 #endif // INPUTREADER_H

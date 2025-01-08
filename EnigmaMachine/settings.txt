@@ -1,0 +1,1 @@
+input.txt, AB,CD,EF,GH,IJ, 1,2,3, 5,12,19

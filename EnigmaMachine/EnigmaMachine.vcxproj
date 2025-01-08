@@ -127,19 +127,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ALU.cpp" />
-    <ClCompile Include="CPU.cpp" />
+    <ClCompile Include="EnigmaController.cpp" />
     <ClCompile Include="EnigmaDescription.cpp" />
     <ClCompile Include="EnigmaMachine.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="InputReader.cpp" />
     <ClCompile Include="Keyboard.cpp" />
+    <ClCompile Include="Output.cpp" />
+    <ClCompile Include="Plugboard.cpp" />
+    <ClCompile Include="Reflector.cpp" />
+    <ClCompile Include="Rotor.cpp" />
+    <ClCompile Include="RotorEncoding.cpp" />
+    <ClCompile Include="SettingsManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ALU.h" />
-    <ClInclude Include="CPU.h" />
+    <ClInclude Include="EnigmaController.h" />
     <ClInclude Include="EnigmaDescription.h" />
+    <ClInclude Include="EnigmaMachine.h" />
     <ClInclude Include="InputReader.h" />
     <ClInclude Include="Keyboard.h" />
+    <ClInclude Include="Output.h" />
+    <ClInclude Include="Plug.h" />
+    <ClInclude Include="Plugboard.h" />
+    <ClInclude Include="Reflector.h" />
+    <ClInclude Include="Rotor.h" />
+    <ClInclude Include="RotorEncoding.h" />
+    <ClInclude Include="SettingsManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="input.txt" />
+    <Text Include="settings.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
